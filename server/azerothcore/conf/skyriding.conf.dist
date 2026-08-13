@@ -1,0 +1,90 @@
+#
+# mod-skyriding configuration
+#
+
+# Enable the module.
+Skyriding.Enable = 1
+
+# Production transport. WXL intercepts this opcode before the bounded 3.3.5
+# handler table, so gameplay does not require the SkyridingBar addon.
+Skyriding.NativePackets = 1
+
+# Mirror legacy HORIZON_SKY messages for the development UI/diagnostics. When
+# NativePackets=1 its outgoing addon controls are ignored, preventing duplicates.
+# If NativePackets=0 this also enables legacy addon input as a fallback.
+Skyriding.DevAddonMessages = 0
+
+# Only activate for these mount display IDs. The defaults are the RidingWyvern
+# models used by the client patch. Comma- or space-separated. Empty = all mounts.
+Skyriding.AllowedMountDisplayIds = "17699 17700 17701 19608 24891 38636 41458 41459 43684 100540 102809 102814 102864 118055"
+
+# Optional compatibility with the upstream riding-overhaul aura. Leave disabled
+# unless spell 98052 and its recharge system are installed server-side.
+Skyriding.RequireFlightChargesAura = 0
+
+# Learn retail Surge Forward (372608) and Skyward Ascent (372610) on login.
+Skyriding.AutoLearnAbilities = 1
+
+# Shared retail-style charge pool for Surge Forward / Skyward Ascent.
+Skyriding.VigorMax = 6
+
+# Recharge time for one shared charge. Current retail baseline: 10 seconds.
+Skyriding.VigorRechargeMs = 10000
+
+# Thrill of the Skies: shared-charge recharge while at/above the high-speed threshold.
+Skyriding.ThrillRechargeMs = 5000
+Skyriding.ThrillFlightRate = 4.5
+
+# Retail auxiliary abilities. These cooldowns are server-authoritative because
+# the 3.3.5 client cannot display retail multi-charge state natively.
+Skyriding.WhirlingSurgeCooldownMs = 30000
+Skyriding.AerialHaltCooldownMs = 10000
+Skyriding.AerialHaltDurationMs = 4000
+Skyriding.AerialHaltRate = 0.65
+Skyriding.SecondWindMaxCharges = 3
+Skyriding.SecondWindRechargeMs = 180000
+
+# Maximum cadence for RATE messages sent to the client addon.
+Skyriding.RateIntervalMs = 100
+
+# Mouse/keyboard yaw multiplier while airborne (0.75 = -25%).
+Skyriding.TurnRate = 0.75
+
+# 0 = block Space/X ascend/descend (skyriding). 1 = classic WotLK vertical.
+Skyriding.ClassicVertical = 0
+
+# Flight speed rates (MOVE_FLIGHT multipliers). Live-like: open @ 250%, peak 6.5, stall < 1.0.
+Skyriding.BaseFlightRate = 2.5
+Skyriding.MaxFlightRate = 6.5
+Skyriding.MinFlightRate = 0.25
+Skyriding.StallThreshold = 1.0
+
+# Pitch thresholds (radians). Strength scales with |pitch| (curvature).
+Skyriding.DivePitch = -0.12
+Skyriding.ClimbPitch = 0.12
+Skyriding.DiveAccelPerSec = 0.55
+Skyriding.HorizDecelPerSec = 0.35
+Skyriding.ClimbDecelPerSec = 0.95
+
+# S while flying = brake (extra decel). Never hover-stop.
+Skyriding.BrakeDecelPerSec = 1.8
+
+# Debug SPD overlay cadence (ms). ~400 = 2.5 Hz.
+Skyriding.SpdIntervalMs = 400
+
+# Surge Forward adds this much to the current MOVE_FLIGHT rate.
+Skyriding.SurgeBoostRate = 1.5
+
+# Skyward Ascent: fixed cast-facing arc + FlapUp→SecondFlapUp.
+Skyriding.SkywardSpeedXY = 11.0
+Skyriding.SkywardSpeedZ = 42.0
+
+# Airborne Skyward also adds flight-rate momentum. Its grace
+# window covers the knockback FLY-flag flicker, both flap animations, and apex.
+Skyriding.SkywardBoostRate = 0.35
+Skyriding.SkywardLandGraceMs = 3500
+
+# Compatibility payload sent with GLOCK. Any positive value now means the
+# grounded state is latched until an accepted takeoff or dismount; it no longer
+# expires after this duration.
+Skyriding.GroundLockMs = 2000
