@@ -7,7 +7,7 @@ movement presentation, and modern mount animation selection.
 ## Client dependencies
 
 - `wxl-runtime` >= 1.0.0 for `wxl.network`.
-- `wxl-modern-m2` >= 1.0.0 with the `wxl.m2-animation` v1 service.
+- `wxl-modern-m2` >= 1.1.0 with the `wxl.m2-animation` v1 service.
 - `wxl-spell-charges` >= 1.0.0 for the action-bar charge display used by Skyriding abilities.
 - WarcraftXL v1.1 with the public opcode, movement, and extended-animation core contracts.
 

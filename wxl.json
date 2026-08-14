@@ -8,7 +8,7 @@
     "assets": ["wxl-skyriding.cfg"],
     "requires": {
       "wxl-runtime": ">=1.0.0",
-      "wxl-modern-m2": ">=1.0.0",
+      "wxl-modern-m2": ">=1.1.0",
       "wxl-spell-charges": ">=1.0.0"
     },
     "conflicts": [],
